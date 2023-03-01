@@ -1,12 +1,12 @@
 package model
 
 type User struct {
-	Id          uint   `gorm:"column:id;primaryKey"`
-	Name        string `gorm:"column:name"`
-	PhoneNumber string `gorm:"column:phone_number"`
-	Address     string `gorm:"column:address"`
-	IdNo        string `gorm:"column:id_no"`
-	UpdateAt    int64  `gorm:"column:update_at"`
+	Id          uint   `gorm:"column:id;autoIncrement;primaryKey"`
+	Name        string `gorm:"column:name;type:varchar(255)"`
+	PhoneNumber string `gorm:"column:phone_number;type:varchar(255)"`
+	Address     string `gorm:"column:address;type:varchar(255)"`
+	IdNo        string `gorm:"column:id_no;type:varchar(255)"`
+	UpdateAt    int64  `gorm:"column:update_at;type:bigint"`
 }
 
 func (u *User) TableName() string {

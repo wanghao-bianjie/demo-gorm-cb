@@ -23,6 +23,7 @@ type UserNew struct {
 
 func setUpDB() {
 	repository.InitMysqlDB("root:root@tcp(127.0.0.1:3306)/test?charset=utf8mb4&parseTime=True&loc=Local&time_zone=%27Asia%2FShanghai%27")
+	repository.CreateTable()
 }
 
 func setUpDBCallback() {

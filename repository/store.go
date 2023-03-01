@@ -1,6 +1,7 @@
 package repository
 
 import (
+	"demo-gorm-cb/model"
 	"demo-gorm-cb/repository/callback"
 	"log"
 	"os"
@@ -52,4 +53,12 @@ func RegisterCallbacks() {
 
 func GetDb() *gorm.DB {
 	return db
+}
+
+func CreateTable() {
+	if err := db.Set("gorm:table_options", "CHARSET=utf8mb4").AutoMigrate(
+		&model.User{},
+	); err != nil {
+		logrus.Error("AutoMigrate have error:", err.Error())
+	}
 }
